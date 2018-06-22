@@ -18,15 +18,56 @@
 //更新react语法后
 import React, { Component } from 'react';
 import config from './config';
+import Loadable from 'react-loadable';
+// import styles from './Greeter.css';
+import MyLoadable from './MyLoadable';
+
+require('./Greeter.css');
 
 class Greeter extends Component {
     render() {
         return (
-            <div>
+            //使用cssModule添加类名的方法
+            <div className={'root'} >
                 {config.greetText}
             </div>
         )
     }
 }
 
-export default Greeter;
+const LoadableBar = Loadable({
+    loader: () => import('./another-component.js'),
+    // loading() {
+    //     return <div>Loading...</div>
+    // }
+    loading: Loading,
+    delay: 300, //延迟加载loading内容
+});
+
+function Loading(props) {
+    if (props.error) {
+        return <div>Error! <button onClick={props.retry}>Retry</button></div>;
+    } else if (props.timedOut) {
+        return <div>Taking a long time... <button onClick={props.retry}>Retry</button></div>;
+    } else if (props.pastDelay) {
+        return <div>Loading...</div>;
+    } else {
+        return null;
+    }
+}
+
+//封装以后
+const LoadableMyComponent = MyLoadable({
+    loader: () => import('./another-component'),
+    //wrapped Loadable breaks react-loadable/babel
+    modules: ['./another-component'],
+    webpack: () => [require.resolveWeak('./another-component')],
+});
+
+
+class MyComponent extends Component {
+    render() {
+        return <LoadableMyComponent />;
+    }
+}
+export default MyComponent;

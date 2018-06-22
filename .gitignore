@@ -1,2 +1,5 @@
 #node and cordova
 node_modules/
+
+#production
+public/
