@@ -193,6 +193,8 @@ webpack的处理顺序是perLoaders - loaders - postLoaders
 
 9. 打包出现0kb的`css`文件是由于`extract-text-webpack-plugin`处于beta阶段
 
+10. react-router 在4.x版本由 `react-router-dom`提供，变化较大
+
 # 参考文档
 * [webpack+react项目初始](https://segmentfault.com/a/1190000008257732)  
 * [README文档规范](https://www.cnblogs.com/zachary93/p/6106829.html)  
@@ -202,3 +204,6 @@ webpack的处理顺序是perLoaders - loaders - postLoaders
 * [optimization.splitChunks](https://webpack.js.org/plugins/split-chunks-plugin/#optimization-splitchunks)
 * [optimization.splitChunks中文](https://blog.csdn.net/songluyi/article/details/79419118)
 * [记一次webpack3升级webpack4的踩坑](https://www.cnblogs.com/carrotWu/p/8665720.html)
+* [关于 React Router 4 的一切](https://blog.csdn.net/sinat_17775997/article/details/77411324)
+* [REACT ROUTER官网](https://reacttraining.com/react-router/)
+* [跟着例子一步步学习redux+react-redux](https://segmentfault.com/a/1190000012976767)

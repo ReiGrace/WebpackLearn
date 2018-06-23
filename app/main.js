@@ -7,7 +7,11 @@
 import React from 'react';
 import { render } from 'react-dom';
 import Greeter from './Greeter';
+import App from './app';
 
 require('./main.css'); //使用require导入css文件
 
-render(<Greeter />, document.querySelector('#root'));
+// render(<Greeter />, document.querySelector('#root'));
+
+
+render(<App />, document.querySelector('#root'));

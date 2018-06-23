@@ -16,7 +16,7 @@ module.exports = {
         // path: __dirname + '/public',
         path: path.resolve(__dirname, 'public'),
         // filename: 'bundle-[hash].js' 
-        filename: 'bundle-[name].js',
+        filename: '[name]-bundle.js',
     },
     //开发用，配置资源映射，打包速度从左到右加快，source-map，cheap-module-source-map，eval-source-map，cheap-module-eval-source-map
     // devtool: 'eval-source-map',
@@ -72,7 +72,8 @@ module.exports = {
                 removeComments: true,                    // 移除 HTML 中的注释
                 collapseWhitespace: false                 // 删除空白符与换行符
             },
-            //需要分离第三方库的时候使用
+            // 要只包含某些块，可以限制使用的块
+            // chunks这个参数告诉插件要引用entry里面的哪几个入口
             // chunks: ['app', 'commons', 'vendors']
         }),
         // new CleanWebpackPlugin('public/*.*', {
