@@ -1,0 +1,6 @@
+{
+    "jquery": "jQuery.noConflict()",
+    "ol": "ol",
+    "layui": "layui",
+    "proj4": "proj4"
+}

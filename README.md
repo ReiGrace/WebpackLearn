@@ -174,6 +174,26 @@ webpack的处理顺序是perLoaders - loaders - postLoaders
 * DefinePlugin
 允许创建一个在编译时可以配置的全局常量 
 
+
+# React-Router和React-Redux（src）
+1. 首先创建store，可以配置的形式创建，创建storeConfigure的时候注意将中间件写入，以增强store的功能   
+
+2. store的中间件主要需要用到`react-router-redux`的工具增强，用于同步history  
+
+3. 其它中间件，可以自行配置，或者直接从`redux`引用，如`redux-thunk`，详见文档  
+
+4. 在app.js创建了store以后，从`react-router-redux`中引入`syncHistoryWithStore`增强history，创建一个增强版的history来结合store同步导航事件，同时监听  
+
+5. `react-redux`中引入`Provider`，配置store属性，`Provider`将store存储为`Context`上下文，子组件都可以找到  
+
+6. 配置自己的Router，作为`Provider`的子组件，路由完成  
+
+7. 此方法为 react-router 3.x 版本
+
+
+
+
+
 # 遇到的坑  
 1. 创建项目时，`<script>`要写在index.html的body内，否则无法加载 
 
@@ -204,6 +224,11 @@ webpack的处理顺序是perLoaders - loaders - postLoaders
 * [optimization.splitChunks](https://webpack.js.org/plugins/split-chunks-plugin/#optimization-splitchunks)
 * [optimization.splitChunks中文](https://blog.csdn.net/songluyi/article/details/79419118)
 * [记一次webpack3升级webpack4的踩坑](https://www.cnblogs.com/carrotWu/p/8665720.html)
+* [React中文官网](http://www.css88.com/react/docs/hello-world.html)
+* [Redux中文官网](http://cn.redux.js.org/)
 * [关于 React Router 4 的一切](https://blog.csdn.net/sinat_17775997/article/details/77411324)
 * [REACT ROUTER官网](https://reacttraining.com/react-router/)
+* [REACT ROUTER中文官网](http://react-guide.github.io/react-router-cn/docs/Introduction.html)
 * [跟着例子一步步学习redux+react-redux](https://segmentfault.com/a/1190000012976767)
+* [redux在react中的应用](https://www.jianshu.com/p/7a71181a7aa0)
+* [react-router的API(老版)](https://segmentfault.com/a/1190000007918058#articleHeader18)
